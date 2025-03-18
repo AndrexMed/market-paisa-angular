@@ -1,19 +1,22 @@
 <nav>
-  <div class="w-full bg-red-500 text-white grid items-center grid-cols-2 p-3">
+  <div
+    class="w-full bg-red-500 text-white grid items-center grid-cols-2 p-3 md:grid-cols-3"
+  >
     <div class="flex gap-2 items-center">
       <span
         (click)="toggleSidebar()"
-        class="cursor-pointer transition ease-in-out duration-300 transform hover:bg-red-600 p-2 rounded-full"
+        class="cursor-pointer transition ease-in-out duration-300 transform hover:bg-red-600 p-2 rounded-full md:hidden"
         ><i class="pi pi-bars" style="font-size: 1.6rem"></i
       ></span>
       <a href=""><img src="" alt="LogoAqui" /></a>
     </div>
 
-    <div class="menu hidden">
+    <div class="menu hidden md:block">
       <ul class="flex gap-2 justify-center">
-        <li><a href="">Home</a></li>
+        <li><a routerLink="/">Home</a></li>
         <li><a href="">Sobre</a></li>
-        <li><a href="">Contato</a></li>
+        <li><a href="">Contacto</a></li>
+        <li><a routerLink="/products">Productos</a></li>
       </ul>
     </div>
 

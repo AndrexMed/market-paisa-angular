@@ -1,10 +1,50 @@
-<div class="card flex justify-center">
-  <p-drawer [(visible)]="visible" header="Drawer">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </p>
-  </p-drawer>
-</div>
+<p-drawer [(visible)]="visible" [closable]="false">
+  <ng-template #header>
+    <div class="flex items-center gap-2">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+        shape="circle"
+      />
+      <span class="font-bold">Mercado Paisa</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- <button
+        pButton
+        icon="pi pi-arrow-left"
+        class="w-full"
+        outlined
+        (click)="visible.set(false)"
+      ></button> -->
+      <app-button
+        [buttonConfig]="buttonCloseConfig()"
+        (onClickEvent)="closeCallback($event)"
+      ></app-button>
+    </div>
+  </ng-template>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+  <ng-template #footer>
+    <div class="flex items-center gap-2">
+      <button
+        pButton
+        label="Account"
+        icon="pi pi-user"
+        class="w-full"
+        outlined
+      ></button>
+      <button
+        pButton
+        label="Logout"
+        icon="pi pi-sign-out"
+        class="w-full"
+        severity="danger"
+        text
+      ></button>
+    </div>
+  </ng-template>
+</p-drawer>

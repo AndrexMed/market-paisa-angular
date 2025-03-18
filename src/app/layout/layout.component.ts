@@ -12,7 +12,7 @@ const COMPONENTS = [NavbarComponent, SidebarComponent];
     <div class="h-screen">
       <app-navbar></app-navbar>
       <app-sidebar></app-sidebar>
-      <div class="bg-gray-100 h-full"><router-outlet /></div>
+      <div class="h-full"><router-outlet /></div>
     </div>
   `,
 })
