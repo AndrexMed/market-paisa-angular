@@ -13,10 +13,9 @@
 
     <div class="menu hidden md:block">
       <ul class="flex gap-2 justify-center">
-        <li><a routerLink="/">Home</a></li>
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Contacto</a></li>
-        <li><a routerLink="/products">Productos</a></li>
+        <li><app-button [buttonConfig]="buttonHome"></app-button></li>
+        <li><app-button [buttonConfig]="buttonCategories"></app-button></li>
+        <li><app-button [buttonConfig]="buttonProducts"></app-button></li>
       </ul>
     </div>
 

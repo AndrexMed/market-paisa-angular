@@ -38,4 +38,6 @@ export interface ButtonConfig {
   autofocus?: boolean;
   fluid?: boolean;
   buttonProps?: any;
+
+  onClick: (event: Event) => void;
 }

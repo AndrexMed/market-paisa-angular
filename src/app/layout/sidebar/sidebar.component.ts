@@ -27,6 +27,7 @@ export class SidebarComponent {
     type: 'button',
     icon: 'pi pi-times',
     severity: 'secondary',
+    onClick: (e: Event) => this.closeCallback(e),
   });
 
   closeCallback(e: Event): void {

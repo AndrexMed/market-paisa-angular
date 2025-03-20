@@ -1,6 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ButtonConfig } from './button.model';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -8,7 +9,7 @@ import { ButtonConfig } from './button.model';
   template: `
     <p-button
       [label]="buttonConfig().label"
-      (onClick)="onClick($event)"
+      (onClick)="buttonConfig().onClick($event)"
       [icon]="buttonConfig().icon"
       [severity]="buttonConfig().severity"
     ></p-button>
@@ -16,11 +17,4 @@ import { ButtonConfig } from './button.model';
 })
 export class ButtonComponent {
   buttonConfig = input.required<ButtonConfig>();
-
-  onClickEvent = output<Event>();
-
-  onClick(event: Event): void {
-    console.log(event);
-    this.onClickEvent.emit(event);
-  }
 }
