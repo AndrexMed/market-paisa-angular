@@ -39,7 +39,7 @@ export class NavbarComponent {
 
   buttonProducts: ButtonConfig = {
     label: 'Products',
-    icon: 'pi pi-cart',
+    icon: 'pi pi-shopping-cart',
     severity: 'secondary',
     onClick: () => this.navigateTo('/products'),
     link: true,
