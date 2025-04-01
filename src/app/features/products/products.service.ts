@@ -25,6 +25,12 @@ export class ProductsService {
       .get<Product[]>(`${this.apiURL}/products`)
       .pipe(
         tap((products) => {
+          // Asignar un valor aleatorio para la propiedad 'inventoryStatus' basado en los estados de stock
+          products.forEach((product) => {
+            const stockStatus = this.getRandomStockStatus();
+            product.inventoryStatus = stockStatus;
+          });
+
           this.products.set(products);
           this.isLoading.set(false);
 
@@ -41,5 +47,12 @@ export class ProductsService {
 
   private _getRandomInt(min = 0, max = 50) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Función para generar un estado de stock aleatorio
+  getRandomStockStatus(): string {
+    const stockStatuses = ['INSTOCK', 'LOWSTOCK', 'OUTOFSTOCK'];
+    const randomIndex = Math.floor(Math.random() * stockStatuses.length);
+    return stockStatuses[randomIndex];
   }
 }

@@ -1,2 +1,8 @@
-<h1>Product Selected</h1>
-<pre>{{ selectedProduct() | json }}</pre>
+<div class="m-6">
+  <p-card
+    header="Random Products"
+    [style]="{ width: '100%', overflow: 'hidden' }"
+  >
+    <app-carousel [products]="products()"></app-carousel>
+  </p-card>
+</div>

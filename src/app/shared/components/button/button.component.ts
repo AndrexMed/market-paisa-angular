@@ -12,7 +12,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       (onClick)="buttonConfig().onClick($event)"
       [icon]="buttonConfig().icon"
       [severity]="buttonConfig().severity"
+      [link]="buttonConfig().link"
     ></p-button>
+  `,
+  styles: `
+    ::ng-deep .p-button-link {
+      color: black !important;
+    }
   `,
 })
 export class ButtonComponent {

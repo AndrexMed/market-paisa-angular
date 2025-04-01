@@ -24,8 +24,9 @@ export class NavbarComponent {
   buttonHome: ButtonConfig = {
     label: 'Home',
     icon: 'pi pi-home',
-    severity: 'secondary',
+    severity: 'primary',
     onClick: () => this.navigateTo('/home'),
+    link: true,
   };
 
   buttonCategories: ButtonConfig = {
@@ -33,13 +34,15 @@ export class NavbarComponent {
     icon: 'pi pi-list',
     severity: 'secondary',
     onClick: () => this.navigateTo('/categories'),
+    link: true,
   };
 
   buttonProducts: ButtonConfig = {
     label: 'Products',
-    icon: 'pi pi-list',
+    icon: 'pi pi-cart',
     severity: 'secondary',
     onClick: () => this.navigateTo('/products'),
+    link: true,
   };
 
   toggleSidebar() {

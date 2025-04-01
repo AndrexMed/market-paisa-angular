@@ -1,1 +1,28 @@
-<p>product works!</p>
+<div class="mb-4 p-8 flex items-center justify-center">
+  <p-card [style]="{ width: '18rem', overflow: 'hidden', }">
+    <ng-template #header>
+      <img
+        alt="Card"
+        class="w-full max-h-60 cursor-pointer hover:scale-103"
+        [src]="product().image"
+      />
+    </ng-template>
+    <ng-template #title>
+      <p class="font-bold text-lg cursor-pointer hover:text-blue-500">
+        {{ product().title }}
+      </p>
+    </ng-template>
+    <ng-template #subtitle>${{ product().price }}</ng-template>
+    <ng-template #content>
+      <p-scrollpanel [style]="{ width: '100%', height: '150px' }">
+        <p>{{ product().description }}</p>
+      </p-scrollpanel>
+    </ng-template>
+    <ng-template #footer>
+      <div class="flex flex-wrap gap-4 mt-1 justify-center items-center">
+        <app-button [buttonConfig]="btnAddToCart"></app-button>
+        <app-button [buttonConfig]="btnBuyNow"></app-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
