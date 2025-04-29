@@ -1,10 +1,11 @@
 import { NgStyle } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { Tag } from 'primeng/tag';
 import { Product } from '../../../features/products/product.model';
 import { ButtonConfig } from '../button/button.model';
 import { ButtonComponent } from '../button/button.component';
+import { Router } from '@angular/router';
 
 const PRIMENG_MODULES = [CarouselModule, Tag];
 const COMPONENTS = [ButtonComponent];
@@ -16,6 +17,7 @@ const COMPONENTS = [ButtonComponent];
   styleUrl: './carousel.component.scss',
 })
 export class CarouselComponent {
+  router = inject(Router);
   products = input.required<Product[]>();
 
   responsiveOptions: any[] | undefined;
@@ -24,14 +26,14 @@ export class CarouselComponent {
     label: '',
     icon: 'pi pi-heart',
     severity: 'secondary',
-    onClick: () => {},
+    onClick: () => { },
   };
 
   btnAddToCartConfig: ButtonConfig = {
     label: '',
     icon: 'pi pi-shopping-cart',
     severity: 'secondary',
-    onClick: () => {},
+    onClick: () => { },
   };
 
   ngOnInit() {
@@ -70,5 +72,12 @@ export class CarouselComponent {
       default:
         return 'success';
     }
+  }
+
+  onProductClick(product: Product) {
+    // Handle product click event here
+    console.log('Product clicked:', product);
+    // Navigate to the product details page or perform any other action
+    this.router.navigate(['/products', product.id]);
   }
 }

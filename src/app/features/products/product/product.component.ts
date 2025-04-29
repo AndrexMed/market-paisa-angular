@@ -14,20 +14,24 @@ const COMPONENTS = [ButtonComponent];
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
-export class ProductComponent {
-  product = input.required<Product>();
+export class ProductDetailComponent {
+  product = input<Product>();
 
   btnAddToCart: ButtonConfig = {
     label: 'Add to cart',
     icon: 'pi pi-shopping-cart',
     severity: 'secondary',
-    onClick: () => {},
+    onClick: () => { },
   };
 
   btnBuyNow: ButtonConfig = {
     label: 'Buy now',
     icon: 'pi pi-shopping-cart',
     severity: 'primary',
-    onClick: () => {},
+    onClick: () => { },
   };
+
+  ngOnInit() {
+    console.log(this.product());
+  }
 }

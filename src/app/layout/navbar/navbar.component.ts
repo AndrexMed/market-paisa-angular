@@ -1,17 +1,21 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output, signal, ViewChild } from '@angular/core';
 import { SidebarService } from '../sidebar/sidebar.service';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ButtonConfig } from '../../shared/components/button/button.model';
 import { CategoriesService } from '../../shared/services/categories.service';
+import { CategoriesPopoverComponent } from './popover/categories/categories.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, CategoriesPopoverComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+
+  @ViewChild('popover') popover!: CategoriesPopoverComponent;
+
   sidebarSvc = inject(SidebarService);
   categoriesSvc = inject(CategoriesService);
 
@@ -51,5 +55,9 @@ export class NavbarComponent {
 
   private navigateTo(route: string) {
     this.router.navigate([route]);
+  }
+
+  showPopover(event: Event) {
+    this.popover.op.toggle(event);
   }
 }

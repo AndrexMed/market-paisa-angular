@@ -1,6 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
 import { ProductsService } from './products.service';
-import { ProductComponent } from './product/product.component';
 import { CardModule } from 'primeng/card';
 import { CarouselComponent } from '../../shared/components/carousel/carousel.component';
 

@@ -1,25 +1,20 @@
 <nav>
-  <div
-    class="w-full bg-red-500 text-white grid items-center grid-cols-2 p-3 md:grid-cols-3"
-  >
+  <div class="w-full bg-red-500 text-white grid items-center grid-cols-2 p-3 md:grid-cols-3">
     <div class="flex gap-2 items-center">
-      <span
-        (click)="toggleSidebar()"
-        class="cursor-pointer transition ease-in-out duration-300 transform hover:bg-red-600 p-2 rounded-full md:hidden"
-        ><i class="pi pi-bars" style="font-size: 1.6rem"></i
-      ></span>
-      <span href=""
-        ><img
+      <span (click)="toggleSidebar()"
+        class="cursor-pointer transition ease-in-out duration-300 transform hover:bg-red-600 p-2 rounded-full md:hidden"><i
+          class="pi pi-bars" style="font-size: 1.6rem"></i></span>
+      <span href=""><img
           src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.117/mercadolibre/logo_large_plus@2x.webp"
-          alt="LogoAqui"
-          class="h-8"
-      /></span>
+          alt="LogoAqui" class="h-8" /></span>
     </div>
 
     <div class="menu hidden md:block">
       <ul class="flex gap-2 justify-center">
         <li><app-button [buttonConfig]="buttonHome"></app-button></li>
-        <li><app-button [buttonConfig]="buttonCategories"></app-button></li>
+        <li (mouseenter)="showPopover($event)"><app-button [buttonConfig]="buttonCategories"></app-button>
+          <app-categories-popover #popover />
+        </li>
         <li><app-button [buttonConfig]="buttonProducts"></app-button></li>
       </ul>
     </div>
@@ -27,9 +22,7 @@
     <div class="profile-menu">
       <ul class="flex gap-4 justify-end">
         <li>
-          <a href=""
-            ><i class="pi pi-shopping-cart" style="font-size: 1.6rem"></i
-          ></a>
+          <a href=""><i class="pi pi-shopping-cart" style="font-size: 1.6rem"></i></a>
         </li>
         <li>
           <a href=""><i class="pi pi-user" style="font-size: 1.6rem"></i></a>
